@@ -24,6 +24,49 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.clangd" },
     -- import/override with your plugins
     { import = "plugins" },
+    {
+      "neovim/nvim-lspconfig",
+      servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = {},
+              },
+            },
+          },
+        },
+      },
+    },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      opts = {
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            show_hidden_count = true,
+            hide_dotfiles = false,
+            hide_gitignored = true,
+            hide_by_name = {},
+            never_show = {},
+          },
+        },
+      },
+      config = function(_, opts)
+        local events = require("neo-tree.events")
+        opts.event_handlers = opts.event_handlers or {}
+        vim.list_extend(opts.event_handlers, {
+          {
+            event = events.FILE_OPENED,
+            handler = function(_)
+              require("neo-tree.command").execute({ action = "close" })
+            end,
+          },
+        })
+
+        require("neo-tree").setup(opts)
+      end,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

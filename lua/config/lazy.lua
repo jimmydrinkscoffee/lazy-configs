@@ -106,20 +106,15 @@ require("lazy").setup({
           },
         },
       },
-      config = function(_, opts)
-        local events = require("neo-tree.events")
-        opts.event_handlers = opts.event_handlers or {}
-        vim.list_extend(opts.event_handlers, {
-          {
-            event = events.FILE_OPENED,
-            handler = function(_)
-              require("neo-tree.command").execute({ action = "close" })
-            end,
-          },
-        })
-
-        require("neo-tree").setup(opts)
-      end,
+      keys = {
+        {
+          "<leader>e",
+          function()
+            require("neo-tree.command").execute({ action = "focus" })
+          end,
+          desc = "Explorer NeoTree",
+        },
+      },
     },
   },
   defaults = {

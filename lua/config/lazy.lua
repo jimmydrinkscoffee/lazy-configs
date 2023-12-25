@@ -33,7 +33,15 @@ require("lazy").setup({
     {
       "folke/tokyonight.nvim",
       lazy = true,
-      opts = { style = "moon" },
+      opts = {
+        style = "moon",
+        styles = {
+          comments = { italic = false },
+          keywords = { italic = false },
+          functions = {},
+          variables = {},
+        },
+      },
     },
     {
       "catppuccin/nvim",

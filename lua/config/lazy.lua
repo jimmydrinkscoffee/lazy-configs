@@ -115,6 +115,18 @@ require("lazy").setup({
         },
       },
     },
+    {
+      "nvim-lualine/lualine.nvim",
+      event = "VeryLazy",
+      opts = function()
+        return {
+          options = {
+            component_separators = "",
+            section_separators = "",
+          },
+        }
+      end,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

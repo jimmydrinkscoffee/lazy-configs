@@ -41,6 +41,7 @@ require("lazy").setup({
           functions = {},
           variables = {},
         },
+        transparent = true,
       },
     },
     {

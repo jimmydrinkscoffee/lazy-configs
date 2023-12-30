@@ -102,6 +102,16 @@ require("lazy").setup({
       },
     },
     {
+      "nvim-treesitter/nvim-treesitter",
+      opts = {
+        highlight = { enable = true },
+        indent = { enable = true },
+        ensure_installed = {
+          "graphql",
+        },
+      },
+    },
+    {
       "nvim-neo-tree/neo-tree.nvim",
       opts = {
         filesystem = {

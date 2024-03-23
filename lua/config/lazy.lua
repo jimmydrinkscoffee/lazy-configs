@@ -88,12 +88,23 @@ require("lazy").setup({
     },
     {
       "neovim/nvim-lspconfig",
-      servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = {},
+      opts = {
+        servers = {
+          lua_ls = {
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = {},
+                },
+              },
+            },
+          },
+          gopls = {
+            settings = {
+              gopls = {
+                analyses = {
+                  fieldalignment = false,
+                },
               },
             },
           },

@@ -13,7 +13,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "tokyonight-moon",
+        colorscheme = "catppuccin-macchiato",
       },
     },
     -- import any extras modules here
@@ -33,6 +33,9 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
     { "arcticicestudio/nord-vim" },
+    { "rebelot/kanagawa.nvim" },
+    { "neanias/everforest-nvim" },
+    { "dracula/vim" },
     {
       "folke/tokyonight.nvim",
       lazy = true,
@@ -87,6 +90,9 @@ require("lazy").setup({
           treesitter_context = true,
           which_key = true,
         },
+        no_italic = true,
+        no_bold = true,
+        no_underline = true,
       },
     },
     {
